@@ -12,7 +12,7 @@ exports.getAllPosts = async (req, res) => {
 };
 
 exports.getYourPosts = async (req, res) => {
-  const posts = await Post.find({ user: req.user._id }).populate("user");
+  const posts = await Post.find({ user: req.user._id }).populate("user").sort({ date: -1 });
   res.send(posts);
 };
 
